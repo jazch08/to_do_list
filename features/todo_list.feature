@@ -41,13 +41,13 @@ Feature: ToDo List Manager
         Then the to-do list should display task "Buy household essentials" with the updated status
 
     Scenario: Filter tasks by status in the to-do list
-        Given the to-do list contains tasks with various statuses:
+        Given the to-do list contains tasks with various statuses
             | Task                | Status    |
             | Buy groceries       | Pending   |
             | Pay bills           | Pending   |
             | Complete assignment | Completed |
         When the user filters tasks by status "Pending"
-        Then the output should contain only pending tasks:
+        Then the output should contain only pending tasks
             """
             Tasks:
             - Buy groceries

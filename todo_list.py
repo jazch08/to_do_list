@@ -1,4 +1,4 @@
-class TodoListManager():
+class TodoListManager:
     def __init__(self):
         self.task = []
 
@@ -7,7 +7,7 @@ class TodoListManager():
 
     def list_task(self):
         return [task["Title"] for task in self.task]
-    
+
     def mark_as_completed(self, task):
         for t in self.task:
             if t["Title"] == task:
@@ -16,15 +16,16 @@ class TodoListManager():
     def clear_tasks(self):
         self.task = []
 
-    def edit_task(self, old_task, new_task, status = "Pending"):
+    def edit_task(self, old_task, new_task, status="Pending"):
         for t in self.task:
             if t["Title"] == old_task:
                 t["Title"] = new_task
                 t["status"] = status
-    
+
     def filter_by_status(self, status):
         return [task["Title"] for task in self.task if task["status"] == status]
-    
+
+
 if __name__ == "__main__":
     todo_manager = TodoListManager()
     while True:
@@ -61,7 +62,7 @@ if __name__ == "__main__":
             status = input("Enter status (Pending/Completed): ")
             todo_manager.edit_task(old_task, new_task, status)
         elif choice == "6":
-            status = input("Enter status to filter tasks (Pending/Completed): ")
+            status = input("Enter status to filter tasks (Pending/Completed):")
             filtered_tasks = todo_manager.filter_by_status(status)
             if not filtered_tasks:
                 print(f"No {status} tasks in the list.")
@@ -73,4 +74,3 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid option. Please select a valid option.")
-    
